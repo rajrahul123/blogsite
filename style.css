@@ -1,0 +1,97 @@
+
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --card: #f9f9f9;
+  --nav: #222;
+  --nav-text: white;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  background: var(--nav);
+  color: var(--nav-text);
+  padding: 15px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+input[type="text"], form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card {
+  background: var(--card);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.tags {
+  color: #888;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #eee;
+  margin-top: 30px;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  padding: 10px 15px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --card: #1f1f1f;
+  --nav: #000;
+  --nav-text: #fff;
+}
