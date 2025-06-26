@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Blog Post</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Add New Blog Post</h1></header>
+  <main class="container">
+    <form id="blogForm">
+      <input type="text" id="title" placeholder="Blog Title" required><br>
+      <input type="text" id="tags" placeholder="#tags separated by comma"><br>
+      <textarea id="content" placeholder="Blog Content" rows="10" required></textarea><br>
+      <button type="submit">Add Post</button>
+    </form>
+    <p><a href="index.html">← Back to Home</a></p>
+  </main>
+  <script>
+    const form = document.getElementById('blogForm');
+    form.onsubmit = function (e) {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const tags = document.getElementById('tags').value;
+      const content = document.getElementById('content').value;
+
+      const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+      posts.unshift({ title, tags, content, date: new Date().toLocaleDateString() });
+      localStorage.setItem('posts', JSON.stringify(posts));
+
+      alert("Blog post added successfully!");
+      form.reset();
+    }
+  </script>
+</body>
+</html>
