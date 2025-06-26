@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rahul's Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Rahul's Blog</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="admin.html">Admin</a>
+        <button id="toggleDark">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <input type="text" id="searchInput" placeholder="Search blog posts...">
+    <section id="blogList"></section>
+  </main>
+
+  <button id="backToTop">↑</button>
+
+  <footer>
+    <p>© 2025 Rahul's Blog | Built with ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+    const blogList = document.getElementById('blogList');
+
+    if (posts.length === 0) {
+      blogList.innerHTML = "<p>No blog posts found. <a href='admin.html'>Add one?</a></p>";
+    } else {
+      posts.forEach(post => {
+        blogList.innerHTML += `
+          <div class="card">
+            <h2>${post.title}</h2>
+            <p class="tags">${post.tags}</p>
+            <p><em>${post.date}</em></p>
+            <p>${post.content.slice(0, 150)}...</p>
+          </div>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>
